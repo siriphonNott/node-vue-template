@@ -1,0 +1,25 @@
+{
+  "name": "node-vue",
+  "main": "index.js",
+  "dependencies": {
+    "ncp": "^2.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  },
+  "scripts": {
+    "start:dev": "concurrently \"yarn start:frontend\" \"yarn start:backend\" ",
+    "start:frontend": "cd Frontend && yarn install && yarn serve",
+    "start:backend": "cd Backend && yarn install && yarn start:dev",
+    "build:backend": "node .",
+    "build:frontend": "cd Frontend && yarn install && yarn build",
+    "build": "yarn build:backend && yarn build:frontend",
+    "start": "cd Published && yarn install && yarn start:prod"
+  },
+  "private": true,
+  "engines": {
+    "node": "12.13.x",
+    "yarn": "1.22.x",
+    "npm": "6.13.x"
+  }
+}
